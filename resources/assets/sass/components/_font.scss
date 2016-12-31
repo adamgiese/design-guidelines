@@ -1,0 +1,17 @@
+.font {
+  &-family {
+    &-style {
+      background: $color-grey;
+      padding: 4px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 1rem 1rem 1rem 0;
+      min-width: 500px;
+    }
+    &-style-name {
+      color: white;
+      margin: 0;
+      border: none;
+    }
+  }
+}

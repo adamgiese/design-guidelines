@@ -1,0 +1,41 @@
+.project {
+  &-body {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: calc(100vh - 72px); //72px for height of header
+  }
+  &-nav-container {
+    flex: 0 auto;
+    width: 300px;
+    padding: 1rem;
+  }
+  &-nav {
+    background: white;
+    height: 100%;
+
+    a {
+      display: block;
+      text-decoration: none;
+      padding: .5em 1em;
+
+      &.router-link-active {
+        border-left: 4px solid $site-accent;
+        margin-left: -4px;
+      }
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+  &-content {
+    flex: 0 auto;
+    max-width: calc(100% - 300px);
+    padding: 1rem;
+  }
+  &-backlink {
+    margin-bottom: 1rem;
+    text-decoration: none;
+    font-style: italic;
+  }
+}
