@@ -10,10 +10,11 @@
     <div class="project-content">
       <router-link class="project-backlink" :to="{ name: 'project', params: { id: project.id } }">&laquo; {{project.name}}</router-link>
       <h1>Colors</h1>
-      <p>Brief description regardings color...</p>
-      <div v-for="spectrum in spectrums" class="spectrum">
-        <h2 class="spectrum-name">{{ spectrum.name }}</h2>
-        <color v-bind:color="color" v-for="color in spectrum.colors"></color>
+      <div class="spectrums">
+        <div v-for="spectrum in spectrums" class="spectrum">
+          <h2 class="spectrum-name">{{ spectrum.name }}</h2>
+          <color v-bind:color="color" v-for="color in spectrum.colors"></color>
+        </div>
       </div>
     </div>
   </div>

@@ -100,6 +100,47 @@ h3 {
   font-style: italic;
 }
 
+.typography-code {
+  background: #4c5760;
+  color: white;
+  padding: 1em;
+}
+
+.spectrums {
+  display: -webkit-box;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.spectrum {
+  background: white;
+  padding: 1rem;
+  margin: 1rem 1rem 1rem 0;
+}
+
+.color {
+  display: inline-block;
+  width: 120px;
+  margin-right: 1em;
+  text-align: center;
+}
+
+.color-title {
+  margin: 0;
+}
+
+.color-code {
+  margin-bottom: 1em;
+}
+
+.color-swatch {
+  width: 72px;
+  height: 72px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 12px auto;
+}
+
 .font-family-style {
   background: #4c5760;
   padding: 4px;

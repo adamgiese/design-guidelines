@@ -1,12 +1,8 @@
 <template>
 <div class="color">
   <h3 class="color-title">{{ color.name }}</h3>
+  <code class="color-code">{{ cssColor }}</code>
   <div class="color-swatch" v-bind:style="{backgroundColor: cssColor}"></div>
-  <div class="color-descripion">
-    <h4>Use Cases:</h4>
-    <h4>Sass Variable Name:</h4>
-    <h4>Color Definition:</h4>
-  </div>
 </div>
 </template>
 
@@ -36,22 +32,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="css">
-
-.color {
-  max-width: 200px;
-}
-
-.color-title {
-  margin-bottom: .5em;
-}
-
-.color-swatch {
-  width: 100%;
-  height: 20px;
-  border: 1px solid black;
-  margin-bottom: .5em;
-}
-
-</style>

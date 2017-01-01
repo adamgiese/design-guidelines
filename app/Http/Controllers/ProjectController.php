@@ -151,6 +151,33 @@ class ProjectController extends Controller
 
             $alerts = [
                 [
+                    'name'  => 'Success',
+                    'definition'  => [
+                        'type'    => 'hex',
+                        'value'   => 'abf2a5',
+                    ],
+                    'uses'  => 'This color is used for displaying messages regarding ',
+                    'variable'  => 'alert-success',
+                ],
+                [
+                    'name'  => 'Info',
+                    'definition'  => [
+                        'type'    => 'hex',
+                        'value'   => '69ddff',
+                    ],
+                    'uses'  => 'This color is used for displaying messages regarding ',
+                    'variable'  => 'alert-info',
+                ],
+                [
+                    'name'  => 'Warning',
+                    'definition'  => [
+                        'type'    => 'hex',
+                        'value'   => 'ffff31',
+                    ],
+                    'uses'  => 'This color is used for displaying messages regarding ',
+                    'variable'  => 'alert-warning',
+                ],
+                [
                     'name'  => 'Danger',
                     'definition'  => [
                         'type'    => 'hex',
@@ -163,7 +190,7 @@ class ProjectController extends Controller
 
             $brand = [
                 [
-                    'name'  => "Coffee Brown",
+                    'name'  => "Coffee",
                     'definition'  => [
                         'type'      => 'hex',
                         'value'     => '692e19',
