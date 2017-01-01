@@ -10,7 +10,6 @@
     <div class="project-content">
       <router-link class="project-backlink" :to="{ name: 'project', params: { id: project.id } }">&laquo; {{project.name}}</router-link>
       <h1>Typography</h1>
-      <p>All of the typographical rules to be used for this project</p>
       <typography-pattern v-bind:pattern="typographyPattern" v-for="typographyPattern in branding.typographyPatterns"></typography-pattern>
     </div>
   </div>

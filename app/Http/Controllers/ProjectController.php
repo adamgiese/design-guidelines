@@ -312,6 +312,24 @@ class ProjectController extends Controller
                     ],
                     'cssName'     => 'Noto Serif',
                 ],
+                [
+                    'name'        => 'Dancing Script',
+                    'liveLink'    => 'https://fonts.googleapis.com/css?family=Dancing+Script',
+                    'googleLink'  => '<link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">',
+                    'styles'      => [
+                        [
+                            'name'    => 'Normal',
+                            'style'   => 'normal',
+                            'weight'  => '400',
+                        ],
+                        [
+                            'name'    => 'Bold',
+                            'style'   => 'normal',
+                            'weight'  => '700',
+                        ],
+                    ],
+                    'cssName'     => 'Dancing Script',
+                ],
             ];
         }
         $retval['branding'] = $branding;
@@ -332,6 +350,7 @@ class ProjectController extends Controller
                 [
                     'name'  => 'Heading 1',
                     'uses'  => 'Used for Page Titles',
+                    'googleLink'  => 'https://fonts.googleapis.com/css?family=Noto+Serif:400,700',
                     'properties' => [
                         'font-family: "Noto Serif", sans-serif;',
                         'font-size: 24px;',
@@ -341,6 +360,7 @@ class ProjectController extends Controller
                 [
                     'name'  => 'Heading 2',
                     'uses'  => 'Used for Page Subtitles and Carousel Banners',
+                    'googleLink'  => 'https://fonts.googleapis.com/css?family=Noto+Serif:400,700',
                     'properties' => [
                         'font-family: "Noto Serif", serif-serif;',
                         'font-size: 18px;',
