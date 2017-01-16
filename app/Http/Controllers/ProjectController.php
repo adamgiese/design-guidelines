@@ -374,4 +374,27 @@ class ProjectController extends Controller
             return $retval;
         }
     }
+
+    /********
+     * TODO move into user controller
+     *******/
+
+    /**
+     * Retrieves current selected user
+     *
+     */
+    public function currentUser(Request $request) {
+        $user = $request->user();
+
+        if ( !empty($user) ) {
+            $response = array(
+                'success' => true,
+                'user'    => $user
+            );
+            return response()->json($response);
+        } else{
+            $response = array('success' => false, 'message' => 'No user currently authenticated.');
+            return response()->json($response);
+        }
+    }
 }
