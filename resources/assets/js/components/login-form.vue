@@ -5,8 +5,14 @@
     <span v-if="user" class="login-form-button" v-on:click="logout">Logout</span>
     <div v-if="loginActive" v-on:click="toggleLogin" class="login-form-overlay"></div>
     <div v-if="loginActive" class="login-form-container">
-      <input v-model="email" />
-      <input v-model="password" />
+      <label class="login-form-item">
+        <span class="login-form-label">Email</span>
+        <input v-model="email" class="login-form-input"/>
+      </label>
+      <label class="login-form-item">
+        <span class="login-form-label">Password</span>
+        <input type="password" v-model="password" class="login-form-input"/>
+      </label>
       <button v-on:click="login">Login Now!</button>
     </div>
   </div>

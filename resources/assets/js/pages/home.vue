@@ -1,6 +1,8 @@
 <template>
   <div id="page-home">
-    <h1>You Are Home</h1>
-    <router-link :to="{ name: 'projects'}">Projects</router-link>
+    <app-header></app-header>
+    <div class="page-content">
+      <h2>Your Brand Guildelines</h2>
+    </div>
   </div>
 </template>

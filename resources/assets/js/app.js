@@ -22,7 +22,7 @@ var logos = Vue.component('Logos', require('./pages/logos.vue'));
 
 var router = new VueRouter({
     routes: [
-        { path: '/', name: 'home', component: projects },
+        { path: '/', name: 'home', component: home },
         { path: '/projects', name: 'projects', component: projects },
         { path: '/project/:id', name: 'project', component: project },
         { path: '/project/:id/typography', name: 'typography', component: typography },
