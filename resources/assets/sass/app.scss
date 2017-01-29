@@ -41,8 +41,12 @@ h3 {
 
 @import 'abstracts/colors';
 
+@import 'base/forms';
+@import 'base/page';
+
 @import 'components/app-header';
 @import 'components/project';
+@import 'components/team';
 @import 'components/typography';
 @import 'components/login-form';
 @import 'components/colors';

@@ -36,6 +36,15 @@ class ProjectController extends Controller
         return $retval;
     }
 
+    /**
+     * Get all projects of currently selected team
+     *
+     */
+    public function teamProjects($team) 
+    {
+        return "test";
+    }
+
     public function show($id)
     {
         if ($id == 1) {

@@ -87,9 +87,10 @@ export default {
     login: function() {
       this.$http.post('/api/v1/authenticate', this.loginData).then((response) => {
         //success
-        this.user = response.body.user;
         console.log(response.body);
-        this.loginActive = false;
+        if ( response.body.success )  {
+          window.location.reload();
+        }
       }, (response) => {
         //failure
         console.log(response);

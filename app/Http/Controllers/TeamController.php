@@ -16,8 +16,13 @@ class TeamController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $teams = $user->teams;
-        return $teams;
+
+        if (!empty($user)) {
+            $teams = $user->teams;
+            return array('success' => true, 'teams' => $teams);
+        } else {
+            return array('success' => false, 'message' => 'No user currently authenticated.');
+        }
     }
 
     /**
@@ -27,6 +32,7 @@ class TeamController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'description' => 'required',
         ]);
         $user = Auth::user();
         $team = new Team;
