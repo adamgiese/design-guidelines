@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Team;
+use App\Project;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -40,9 +44,39 @@ class ProjectController extends Controller
      * Get all projects of currently selected team
      *
      */
-    public function teamProjects($team) 
+    public function teamProjects(Team $team) 
     {
-        return "test";
+        $projects = $team->projects;
+        return $projects;
+    }
+
+    /**
+     * Creates new project
+     *
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        $user = Auth::user();
+        $team_id = $request->teamID;
+        $team = Team::find($team_id);
+
+        if ( empty($team) ) {
+            return "Team does no exist!";
+        }
+
+        if ($user->id !== $team->user_id) {
+            return 'You do not have permission to edit this team!';
+        }
+
+        $project = new Project;
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->subtitle = $request->subtitle;
+        $project->team_id = $team_id;
+        $project->save();
     }
 
     public function show($id)

@@ -8,7 +8,7 @@
       <div v-if="!anonymous">
         <div class="teams">
           <router-link v-for="team in teams" :to="{ name: 'teamProjects', params: { id: team.id } }">
-            <h2>{{team.title}}, {{team.id}}</h2>
+            <h2>{{team.title}}</h2>
           </router-link>
         </div>
         <div v-if="!teams">There are no teams! Created on below!</div>

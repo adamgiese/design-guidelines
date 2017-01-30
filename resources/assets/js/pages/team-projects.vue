@@ -1,13 +1,36 @@
 <template>
 <div id="page-projects">
-<app-header></app-header>
-<h1>Projects</h1>
-<div class="projects" v-if="projects">
-  <router-link class="project" v-for="project in projects" :to="{ name: 'project', params: { id: project.id } }">
-    <h2 class="project-name">{{ project.name }}</h2>
-    <span v-if="project.lastUpdated" class="project-last-updated">Last Updated {{ project.lastUpdated }}</span>
-  </router-link>
-</div>
+  <app-header></app-header>
+  <div class="page-content">
+    <router-link class="project-backlink" :to="{ name: 'teams' }">&laquo; Back To All Teams</router-link>
+    <h1>Projects</h1>
+    <div class="projects" v-if="projects">
+      <router-link class="project" v-for="project in projects" :to="{ name: 'project', params: { id: project.id } }">
+        <h2 class="project-name">{{ project.name }}</h2>
+        <span v-if="project.lastUpdated" class="project-last-updated">Last Updated {{ project.lastUpdated }}</span>
+      </router-link>
+    </div>
+    <div class="projects-form">
+      <label>
+        Project Name:
+        <input v-model="newProjectName" />
+      </label>
+      <label>
+        Project Subtitle:
+        <input v-model="newProjectSubtitle" />
+      </label>
+      <label>
+        Project Description:
+        <textarea v-model="newProjectDescription" placeholder="Project Description"></textarea>
+      </label>
+      <div class="project-errors">
+        <div class="error" v-for="error in createProjectErrors">
+          <span class="error-message" v-for="message in error">{{message}}</span>
+        </div>
+      </div>
+      <button v-on:click="createProject">Create Project</button>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -18,17 +41,43 @@ Vue.component('app-header', require('../components/app-header.vue'));
 export default {
   data: function() {
     return {
-      projects: []
+      projects: [],
+      createTeamErrors: [],
+    }
+  },
+  computed: {
+    projectData: function() {
+      return {
+        "name": this.newProjectName,
+        "description": this.newProjectDescription,
+        "subtitle": this.newProjectSubtitle,
+        "teamID": this.$route.params.id
+      }
     }
   },
   mounted() {
-    this.$http.get('api/v1/projects').then((response) => {
+    this.$http.get('api/v1/team/' + this.$route.params.id + '/projects').then((response) => {
     //success
+      console.log(response);
       this.projects = response.data;
     }, (response) => {
       //failure
-      alert('failed!'); //todo give error message
+      console.log(response.body);
     });
+  },  
+  methods: {
+    createProject: function() {
+      this.$http.post('/api/v1/project', this.projectData).then((response) => {
+        //success
+        console.log(response);
+        this.projects.push(this.projectData);
+      }, (response) => {
+        //failure
+        console.log('failure to create project!');
+        this.createprojectErrors = response.body;
+        console.log(response.body);
+      });
+    }
   }
 }
 
