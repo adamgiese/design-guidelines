@@ -46,6 +46,12 @@ class ProjectController extends Controller
      */
     public function teamProjects(Team $team) 
     {
+        $user = Auth::user();
+
+        if ($user->id !== $team->user_id) {
+            return 'You do not have permission to edit this team!';
+        }
+
         $projects = $team->projects;
         return $projects;
     }
