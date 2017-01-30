@@ -26,7 +26,7 @@ var router = new VueRouter({
     routes: [
         { path: '/', name: 'home', component: home },
         { path: '/teams', name: 'teams', component: teams },
-        { path: '/team/:id/projects', name: 'teamProjects', component: teamProjects },
+        { path: '/team/:id/', name: 'teamProjects', component: teamProjects },
         { path: '/projects', name: 'projects', component: projects },
         { path: '/project/:id', name: 'project', component: project },
         { path: '/project/:id/typography', name: 'typography', component: typography },
