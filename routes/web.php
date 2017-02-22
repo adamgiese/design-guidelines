@@ -15,22 +15,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::post('/api/v1/authenticate', 'Auth\LoginController@authenticate');
 Route::get('/api/v1/authenticate', 'Auth\LoginController@authenticate');
 
-Route::get('/api/v1/teams', 'TeamController@index');
-Route::post('/api/v1/team', 'TeamController@store');
-Route::get('/api/v1/team/{team}/projects', 'ProjectController@teamProjects');
+Route::group(['middleware' => 'auth'], function() {
+		Route::get('/api/v1/teams', 'TeamController@index');
+		Route::post('/api/v1/team', 'TeamController@store');
+		Route::get('/api/v1/team/{team}/projects', 'ProjectController@teamProjects');
 
-Route::post('api/v1/project', 'ProjectController@store');
+		Route::post('api/v1/project', 'ProjectController@store');
 
-Route::get('/api/v1/projects', 'ProjectController@index');
-Route::get('/api/v1/project/{project}', 'ProjectController@show');
-Route::get('/api/v1/project/{project}/typography', 'ProjectController@typography');
-Route::get('/api/v1/project/{project}/fonts', 'ProjectController@fonts');
-Route::get('/api/v1/project/{project}/logos', 'ProjectController@logos');
-Route::get('/api/v1/project/{project}/colors', 'ProjectController@colors');
-Route::get('/api/v1/currentUser', 'ProjectController@currentUser');
+		Route::get('/api/v1/projects', 'ProjectController@index');
+		Route::get('/api/v1/project/{project}', 'ProjectController@show');
+		Route::get('/api/v1/project/{project}/typography', 'ProjectController@typography');
+		Route::get('/api/v1/project/{project}/fonts', 'ProjectController@fonts');
+		Route::get('/api/v1/project/{project}/logos', 'ProjectController@logos');
+		Route::get('/api/v1/project/{project}/colors', 'ProjectController@colors');
+		Route::get('/api/v1/currentUser', 'ProjectController@currentUser');
+});
 
 Auth::routes();
 
