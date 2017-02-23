@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('api/v1/project', 'ProjectController@store');
 
 		Route::get('/api/v1/projects', 'ProjectController@index');
+		Route::get('/api/v1/projectsByTeam', 'ProjectController@projectsByTeam');
 		Route::get('/api/v1/project/{project}', 'ProjectController@show');
 		Route::get('/api/v1/project/{project}/typography', 'ProjectController@typography');
 		Route::get('/api/v1/project/{project}/fonts', 'ProjectController@fonts');

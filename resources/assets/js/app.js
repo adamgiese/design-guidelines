@@ -12,6 +12,7 @@ require('./bootstrap');
  */
 
 var home = Vue.component('Home', require('./pages/home.vue'));
+var dashboard = Vue.component('Dashboard', require('./pages/dashboard.vue'));
 var teams = Vue.component('Teams', require('./pages/teams.vue'));
 var teamProjects = Vue.component('TeamProjects', require('./pages/team-projects.vue'));
 var projects = Vue.component('Projects', require('./pages/projects.vue'));
@@ -25,6 +26,7 @@ var logos = Vue.component('Logos', require('./pages/logos.vue'));
 var router = new VueRouter({
     routes: [
         { path: '/', name: 'home', component: home },
+        { path: '/dashboard', name: 'dashboard', component: dashboard },
         { path: '/teams', name: 'teams', component: teams },
         { path: '/team/:id/', name: 'teamProjects', component: teamProjects },
         { path: '/projects', name: 'projects', component: projects },

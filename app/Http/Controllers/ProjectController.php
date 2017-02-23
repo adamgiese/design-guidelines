@@ -40,6 +40,22 @@ class ProjectController extends Controller
         return $retval;
     }
 
+    /** 
+     * Return array of all user's projects, sorted by team
+     *
+     */
+    public function projectsByTeam() 
+    {
+        $user = Auth::user();
+        $teams = $user->teams;
+
+        foreach ($teams as $team) {
+            $team['projects'] = $team->projects;
+        }
+        return $teams;
+
+    }
+
     /**
      * Get all projects of currently selected team
      *
